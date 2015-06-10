@@ -1,6 +1,11 @@
-<resources>
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <resources>
+
     <string name="app_name">pintu</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="hello_world">Hello world!</string>
+
 </resources>

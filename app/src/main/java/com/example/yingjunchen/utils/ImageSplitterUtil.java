@@ -8,38 +8,39 @@ import android.graphics.Bitmap;
 public class ImageSplitterUtil
 {
 
-	/**
-	 * @param bitmap
-	 * @param piece
-	 *            切成piece*piece块
-	 * @return List<ImagePiece>
-	 */
-	public static List<ImagePiece> splitImage(Bitmap bitmap, int piece)
-	{
-		List<ImagePiece> imagePieces = new ArrayList<ImagePiece>();
+    /**
+     * @param bitmap
+     * @param piece
+     *            切成piece*piece块
+     * @return List<ImagePiece>
+     */
+    public static List<ImagePiece> splitImage(Bitmap bitmap, int piece)
+    {
+        List<ImagePiece> imagePieces = new ArrayList<ImagePiece>();
 
-		int width = bitmap.getWidth();
-		int height = bitmap.getHeight();
-		int pieceWidth = Math.min(width, height) / piece;
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
 
-		for (int i = 0; i < piece; i++)
-		{
-			for (int j = 0; j < piece; j++)
-			{
+        int pieceWidth = Math.min(width, height) / piece;
 
-				ImagePiece imagePiece = new ImagePiece();
-				imagePiece.setIndex(j + i * piece);
+        for (int i = 0; i < piece; i++)
+        {
+            for (int j = 0; j < piece; j++)
+            {
 
-				int x = j * pieceWidth;
-				int y = i * pieceWidth;
-				
-				imagePiece.setBitmap(Bitmap.createBitmap(bitmap, x, y,
-						pieceWidth, pieceWidth));
-				imagePieces.add(imagePiece);
-			}
-		}
+                ImagePiece imagePiece = new ImagePiece();
+                imagePiece.setIndex(j + i * piece);
 
-		return imagePieces;
-	}
+                int x = j * pieceWidth;
+                int y = i * pieceWidth;
+
+                imagePiece.setBitmap(Bitmap.createBitmap(bitmap, x, y,
+                        pieceWidth, pieceWidth));
+                imagePieces.add(imagePiece);
+            }
+        }
+
+        return imagePieces;
+    }
 
 }
